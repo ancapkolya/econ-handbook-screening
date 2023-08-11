@@ -1,0 +1,34 @@
+\documentclass{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+\setlength\parindent{15pt}
+
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks,
+  allcolors=[RGB]{010 090 200}}
+
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+\usepackage{indentfirst}
+
+\newcommand{\mycolor}[1]{RoyalBlue!#1!white}
+\newcommand{\mycolorframe}{100}
+\newcommand{\mycolorlower}{100}
+\newcommand{\mycolorupper}{100}
+\newcommand{\mycolorback}{10}
+\newcommand{\mycolortext}{black}
+
+\newtcolorbox{mybox}[1]{breakable,colupper=\mycolortext,colframe=\mycolor{\mycolorframe},colback=\mycolor{\mycolorback},collower=\mycolortext,fonttitle=\bfseries,title={#1}}
+\newtcolorbox{mybox_2}{breakable,colupper=\mycolortext,colframe=\mycolor{\mycolorframe},colback=\mycolor{\mycolorback},collower=\mycolortext,fonttitle=\bfseries}
+
+%\let\oldtableofcontents\tableofcontents
+%\renewcommand{\tableofcontents}{
+%\begin{tcolorbox}[breakable,colback=\mycolor{\mycolorback},colframe=\mycolor{\mycolorframe},collower=\mycolor{\mycolorlower},colupper=\mycolor{\mycolorupper}]
+%    \oldtableofcontents
+%\end{tcolorbox}}
