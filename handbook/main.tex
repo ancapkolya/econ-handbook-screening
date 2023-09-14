@@ -1794,4 +1794,211 @@
     \textit{\textbf{\centering\href{https://iloveeconomics.ru/sites/default/files/olimp/vseros/2018/vseros_2018_vseros_10-11_klass_1_tur_resheniya_18405.pdf}{Решение}}}
 \end{mybox}
 
+
+
+\chapter{Вертикальная дифференциация товара}
+
+
+\indent\setlength{\parindent}{1em}\indent\setlength{\parindent}{1em}В этой главе разберем еще одну тему - вертикальную
+дифференциацию. Она является подтемой модели Хотеллинга. То есть основные ходы в решении будут аналогичными. То есть
+
+
+\section{Модель в общем виде}
+
+\begin{mybox}{Задача 5}
+    \indent\setlength{\parindent}{1em}\indent\setlength{\parindent}{1em}Рассмотрим город, являющийся отрезком с длиной
+    1, равномерно населенный бесконечно малыми человечками. В нем присутствуют 2 фирмы, которые торгуют воздухом по
+    нулевой цене. Жители абсолютно неэластично желают потребить 1 единицу воздуха. Их издержками на преобретение товара
+    являются транспортных расходов, которые составляют $t$ единиц за расстояние $t$ до магазина. Жители выбирают
+    ближайший магазин. С точки зрения общественного планировщика, который минимизирует суммарные затраты жителей на
+    транспортные расходы, выберите оптимальной расположение магазинов.
+    \tcblower
+    \textbf{Решение:}
+    \begin{enumerate}
+        \item Бесконечно малый человечек тратит на дорогу бескончено тонкий столбик высотой $t$, если до ближайшего
+        магазина расстояние - $t$. Так как бесконечно малых человечков бесконечно много, то они вплотную распологают
+        свои столбики, которые выражают их траты. Таким образом перед общественным планировщиком стоит задача
+        минимизации площади под графиком, выражающем затраты человечка с координатой $x$.
+        \item Пусть у нас есть магазин A, обслуживающий потребителей на отрезке длиной L. Выберем для него оптимальной
+        положение. Красная площадь под графиком - суммарные затраты на дорогу.
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel = \(\text{Местоположение}\),
+                    ymin = 0,
+                    height=0.4\textwidth,
+                    ymax = 1,
+                    enlarge x limits=false,
+                    axis on top,
+                    symbolic x coords={0,0.25L(A),0.5L,0.75L,L},
+                    xtick=data,
+                ]
+                \addplot[name path=red,red] coordinates
+                {(0,0.25) (0.25L(A),0) (0.5L,0.25) (0.75L,0.5) (L,0.75)};
+                \addplot[name path=black,black, mark=*,mark options=solid] coordinates
+                {(0,0.25) (0.25L(A),0) (0.5L,0.25) (0.75L,0.5) (L,0.75)};
+                \addplot [name path=line,black,mark=circle] coordinates
+                {(0,0) (0.25L(A),0) (0.5L,0) (0.75L,0) (L,0)};
+                \addplot[red!80] fill between[of=red and line,
+                    split,
+                    every segment,
+                ];
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \item Пусть магазин стоит в произвольной точке. Если мы немного сдвинем его к середине, то уберем высокий
+        бесконечно малый столбик, добавив низкий бесконечно малый столбик. То есть затраты на такое перемещение
+        меньше выгод. Будем двигать до тех пор пока магазин не окажется в середине. Нам будет невыгодно куда либо его
+        \item сдвигать.
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel = \(\text{Местоположение}\),
+                    ymin = 0,
+                    height=0.4\textwidth,
+                    ymax = 1,
+                    enlarge x limits=false,
+                    axis on top,
+                    symbolic x coords={0,0.25L,0.5L(A),0.75L,L},
+                    xtick=data,
+                ]
+                    \addplot[name path=red,red] coordinates
+                    {(0,0.5) (0.25L,0.25) (0.5L(A),0) (0.75L,0.25) (L,0.5)};
+                    \addplot[name path=black,black, mark=*,mark options=solid] coordinates
+                    {(0,0.5) (0.25L,0.25) (0.5L(A),0) (0.75L,0.25) (L,0.5)};
+                    \addplot [name path=line,black,mark=circle] coordinates
+                    {(0,0) (0.25L,0) (0.5L(A),0) (0.75L,0) (L,0)};
+                    \addplot[red!80] fill between[of=red and line,
+                        split,
+                        every segment,
+                    ];
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \item Теперь рассмотрим расстановку с двумя магазинами.
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel = \(\text{Местоположение}\),
+                    ymin = 0,
+                    height=0.4\textwidth,
+                    width=0.8\textwidth,
+                    ymax = 1,
+                    enlarge x limits=false,
+                    axis on top,
+                    symbolic x coords={0,0.1L(A),0.2L,0.3L(D),0.4L,0.5L(B),0.6L,0.7L,0.8L,0.9L,L},
+                    xtick=data,
+                ]
+                    \addplot[name path=red,red] coordinates
+                    {(0,0.1) (0.1L(A),0) (0.2L,0.1) (0.3L(D),0.2) (0.4L,0.1) (0.5L(B),0) (0.6L,0.1) (0.7L,0.2) (0.8L,0.3) (0.9L,0.4) (L,0.5)};
+                    \addplot[name path=black,black, mark=*,mark options=solid] coordinates
+                    {(0,0.1) (0.1L(A),0) (0.2L,0.1) (0.3L(D),0.2) (0.4L,0.1) (0.5L(B),0) (0.6L,0.1) (0.7L,0.2) (0.8L,0.3) (0.9L,0.4) (L,0.5)};
+                    \addplot [name path=line,black,mark=circle] coordinates
+                    {(0,0) (0.1L(A),0) (0.2L,0) (0.3L(D),0) (0.4L,0) (0.5L(B),0) (0.6L,0) (0.7L,0) (0.8L,0) (0.9L,0) (L,0)};
+                    \addplot[red!80] fill between[of=red and line,
+                        split,
+                        every segment,
+                    ];
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \item Теперь руководствуясь логикой из предыдущего пункта можно сдвинуть точку D в центр, что будет выгодно
+        жителям.
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel = \(\text{Местоположение}\),
+                    ymin = 0,
+                    height=0.4\textwidth,
+                    width=0.8\textwidth,
+                    ymax = 1,
+                    enlarge x limits=false,
+                    axis on top,
+                    symbolic x coords={0,0.1L,0.2L,0.3L(A),0.4L,0.5L(D),0.6L,0.7L(B),0.8L,0.9L,L},
+                    xtick=data,
+                ]
+                    \addplot[name path=red,red] coordinates
+                    {(0,0.3) (0.1L,0.2) (0.2L,0.1) (0.3L(A),0) (0.4L,0.1) (0.5L(D),0.2) (0.6L,0.1) (0.7L(B),0) (0.8L,0.1) (0.9L,0.2) (L,0
+                    .3)};
+                    \addplot[name path=black,black, mark=*,mark options=solid] coordinates
+                    {(0,0.3) (0.1L,0.2) (0.2L,0.1) (0.3L(A),0) (0.4L,0.1) (0.5L(D),0.2) (0.6L,0.1) (0.7L(B),0) (0.8L,0.1) (0.9L,0.2) (L,0
+                    .3)};
+                    \addplot [name path=line,black,mark=circle] coordinates
+                    {(0,0) (0.1L,0) (0.2L,0) (0.3L(A),0) (0.4L,0) (0.5L(D),0) (0.6L,0) (0.7L(B),0) (0.8L,0) (0.9L,0) (L,0)};
+                    \addplot[red!80] fill between[of=red and line,
+                        split,
+                        every segment,
+                    ];
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \item Теперь нужно, не меняя положения точки D, сдвигать магазины равномерно либо концам города, если
+        бесконечно малые жители с концов платят больше, чем жители с середины, либо наоборот. Это будет выгодно по
+        той же самой идее.
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel = \(\text{Местоположение}\),
+                    ymin = 0,
+                    height=0.4\textwidth,
+                    width=0.8\textwidth,
+                    ymax = 1,
+                    enlarge x limits=false,
+                    axis on top,
+                    symbolic x coords={0,0.25L(A),0.5L(D),0.75L(B),L},
+                    xtick=data,
+                ]
+                    \addplot[name path=red,red] coordinates
+                    {(0,0.25) (0.25L(A),0) (0.5L(D),0.25) (0.75L(B),0)  (L,0.25)};
+                    \addplot[name path=black,black, mark=*,mark options=solid] coordinates
+                    {(0,0.25) (0.25L(A),0) (0.5L(D),0.25) (0.75L(B),0)  (L,0.25)};
+                    \addplot [name path=line,black,mark=circle] coordinates
+                    {(0,0) (0.25L(A),0) (0.5L(D),0) (0.75L(B),0)  (L,0)};
+                    \addplot[red!80] fill between[of=red and line,
+                        split,
+                        every segment,
+                    ];
+                \end{axis}
+            \end{tikzpicture}
+        \end{center}
+        \item Благодаря этим манипуляциям мы можем снизить транспортные издержки из любого изначального положения
+        магазинов.
+    \end{enumerate}
+\end{mybox}
+
+
+\section{Задачи}
+
+
+\section{Задачи из олимпиад}
+
+\begin{mybox}{Задача 4. \textit{Всерос 2022}}
+    \indent\setlength{\parindent}{1em}\indent\setlength{\parindent}{1em}На рынке жизненно необходимых виджетов есть две
+    фирмы, 1 и 2, а также очень большое число покупателей. Виджеты, выпускаемые разными фирмами, могут отличаться по
+    качеству и цене. Полезность покупателя от покупки товара качества $x$ по цене $p$ задается уравнением
+    $U(x,p)=wx-p$, где $w$ – готовность данного покупателя платить за единицу качества. У разных покупателей $w$
+    разная, причем параметр $w$ распределен среди населения равномерно на отрезке $[0; 1]$, то есть для любых $w_1$,
+    $w_2$ таких, что $0\leq w_1 \leq w_2 \leq 1$, доля людей, чья $w$ лежит на отрезке $[w_1;w_2]$, равна $w_2 - w_1$.
+    Например, доля людей, чья $w$ находится на отрезке $[0,4; 0,7]$ равна $0,3$. Из всех виджетов, предложенных на
+    рынке, покупатель выбирает тот, полезность от покупки которого наибольшая. Если покупатель не покупает ни один из
+    виджетов, его полезность равна минус бесконечности. Общие издержки каждой из фирм равны $TC=xQ$, где $x$ – качество
+    товара данной фирмы, $Q$ – количество проданных единиц. Качество товара может быть любым числом на отрезке $[0; 1]$.\\
+    \indent\setlength{\parindent}{1em}\indent\setlength{\parindent}{1em}Если качество товара уже выбрано, то его сложно
+    изменить. Цены же можно переустаналивать свободно. Поэтому схема взаимодействия фирм выглядит следующим образом:
+    \begin{enumerate}
+        \item Сначала фирма 1 выбирает качество своего товара $x_1$.
+        \item Фирма 2 наблюдает $x_1$ и затем выбирает качество своего товара $x_2$. После этого шага качества товаров
+        изменить нельзя. Первые два шага можно интерпретировать как выбор каждой из фирм своей \textit{рыночной ниши}.
+        \item Затем обе фирмы, зная $x_1$ и $x_2$, одновременно и независимо выбирают цены $p_1$ и $p_2$. Цены,
+        выбираемые на данном этапе, образуют \textit{равновесие}, то есть цена $p_1$ должна быть оптимальна для фирмы 1 при
+        фиксированных $p_2$, $x_1$, $x_2$, и наоборот, цена $p_2$ должна быть оптимальна для фирмы 2 при фиксированных
+        $p_1$, $x_1$, $x_2$.
+    \end{enumerate}\smallskip\\
+    \indent\setlength{\parindent}{1em}\indent\setlength{\parindent}{1em}\textbf{(a)} Если $p_1<p_2$, а $x_1<x_2$, какая доля потребителей купит товар
+    первой фирмы (как функция от $x_1$, $x_2$, $p_1$, $p_2$)?.\smallskip\\
+    \indent\setlength{\parindent}{1em}\textbf{(b)} Найдите качества товаров $x_1$, $x_2$ и цены $p_1$, $p_2$, которые
+    выберут фирмы.\bigskip\\
+    \textit{\textbf{\centering\href{https://iloveeconomics.ru/sites/default/files/olimp/vseros/2022/vseros_2022_solutions_10_23379.pdf}{Решение}}}
+\end{mybox}
+
 \end{document}
